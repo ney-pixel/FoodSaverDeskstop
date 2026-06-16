@@ -1,0 +1,212 @@
+/* CONTAINER PRINCIPAL */
+
+.usuarios-container{
+    width:900px;
+    margin:120px auto 40px auto;
+    color:white;
+    font-family:"Electrolize", sans-serif;
+}
+
+
+/* HEADER */
+
+.usuarios-header h1{
+    color:rgb(22,219,101);
+    margin-bottom:5px;
+    /*display:flex;
+    align-items:center;
+    gap:10px;*/
+}
+.title-icon{
+    width:26px;
+}
+
+.usuarios-header p{
+    opacity:0.7;
+    margin-bottom:40px;
+}
+
+
+
+/* CARD CENTRAL */
+
+.create-user-card{
+ 
+
+width:420px;
+
+margin:auto;
+
+background:#0f0f0f;
+
+border:1px solid rgba(22,219,101,0.25);
+
+border-radius:10px;
+
+padding:30px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.8),
+0 0 12px rgba(22,219,101,0.1);
+
+transition:0.25s;
+
+}
+
+.create-user-card:hover{
+
+border-color:rgb(22,219,101);
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.8),
+0 0 15px rgba(22,219,101,0.25);
+
+}
+
+
+/* TITULO FORM */
+
+.create-user-card h2{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+color:rgb(22,219,101);
+
+margin-bottom:25px;
+
+}
+
+.form-icon{
+width:20px;
+}
+
+
+/* INPUTS */
+
+.form-group{
+
+display:flex;
+
+flex-direction:column;
+
+margin-bottom:18px;
+
+}
+
+.form-group label{
+
+font-size:13px;
+
+opacity:0.7;
+
+margin-bottom:4px;
+
+}
+
+.form-group input{
+
+background:#111;
+
+border:1px solid rgba(255,255,255,0.08);
+
+padding:10px;
+
+border-radius:5px;
+
+color:white;
+
+font-family:"Electrolize", sans-serif;
+
+outline:none;
+
+transition:0.2s;
+
+}
+
+.form-group input::placeholder{
+
+color:rgba(255,255,255,0.35);
+
+}
+
+.form-group input:focus{
+
+border-color:rgb(22,219,101);
+
+box-shadow:0 0 8px rgba(22,219,101,0.3);
+
+}
+
+
+/* BOTÃO */
+
+.create-btn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+width:100%;
+
+margin-top:10px;
+
+background:rgba(22,219,101,0.15);
+
+color:rgb(22,219,101);
+
+border:1px solid rgba(22,219,101,0.35);
+
+padding:10px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+font-family:"Electrolize", sans-serif;
+
+font-size:14px;
+
+transition:0.25s;
+
+}
+
+.create-btn img{
+
+width:16px;
+
+}
+
+.create-btn:hover{
+
+background-color: white;
+    color: rgb(5,140,66);
+     box-shadow: 0 0 20px rgba(22,219,101,0.8), 0 0 35px rgba(22,219,101,0.5);
+    transform: scale(1.05);
+
+}
+
+/*botao de sair*/
+.sair-btn{
+    transition:0.25s;
+    border-radius:6px;
+    padding-left:10px !important;
+}
+
+.sair-btn:hover{
+
+    background:rgba(255,92,92,0.12);
+
+    color:#FF5C5C !important;
+
+    box-shadow:0 0 10px rgba(255,92,92,0.15);
+
+    transform:translateX(3px);
+}

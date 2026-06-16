@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodSaver - Visualizar Administradores</title>
+    <link rel="stylesheet" href="../../nav.css">
+    <link rel="stylesheet" href="vAdm.css">
+</head>
+<body>
+    <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+    
+
+
+    
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <span class="logo"><img src="../../../img/logo.png" alt="logo"></span>
+    <a class="navbar-brand" href="#"><span class="titulo">FoodSaver</span></a>
+    <button id="menu-btn" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark menu" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title titu" id="offcanvasDarkNavbarLabel">Gerenciamento</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Usuários
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="../../Usuario/aUser/aUser.html">Visualizar</a></li>
+              <li><a class="dropdown-item" href="../../Usuario/eUser/eUser.html">Excluir</a></li>
+              <li><a class="dropdown-item" href="../../Usuario/aUser/aUser.html">Atualizar</a></li>
+              <li><a class="dropdown-item" href="../../Usuario/cUser/cUser.html">Criar</a></li>
+              <li>
+
+              </li>
+            </ul>
+            <a class="nav-link dropdown-toggle active-section" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administradores
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item  active-menu" href="../vAdm/vAdm.html">Visualizar</a></li>
+              <li><a class="dropdown-item" href="../eAdm/eAdm.html">Excluir</a></li>
+              <li><a class="dropdown-item" href="../aAdm/aAdm.html">Atualizar</a></li>
+              <li><a class="dropdown-item" href="../cAdm/cAdm.html">Criar</a></li>
+              <li>
+
+              </li>
+            </ul>
+
+             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Reativar
+            </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="../../Usuario/rUser/rUser.html">Usuário</a></li>
+              <li><a class="dropdown-item" href="../rAdm/rAdm.html">Administrador</a></li>
+
+              <li>
+                </li>
+                </ul>
+
+                <a class="nav-link sair-btn" href="#" role="button" aria-expanded="false">
+              Sair
+            </a>
+            
+          </li>
+        </ul>
+              <div class="menu-center">
+          <img src="../../../img/logo100.png" alt="logo100">
+
+      </div>
+      </div>
+    </div>
+  </div>
+</nav>
+    <div id="visualizarUsuarios">
+
+<div class="usuarios-container">
+
+    <div class="usuarios-header">
+        <h1>
+    <img src="../../../img/usuarios.png" class="title-icon">
+    Administradores do Sistema
+</h1>
+        <p>Lista de administradores cadastrados no FoodSaver</p>
+    </div>
+<div class="usuarios-info">
+
+    <div class="info-card">
+
+        <div class="card-title">
+            <img src="../../../img/media.png" class="card-icon">
+            Total de administradores
+        </div>
+
+        <div class="card-value" id="totalAdm"></div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="card-title">
+            <img src="../../../img/nivel.png" class="card-icon">
+            Média de anos
+        </div>
+
+        <div class="card-value" id="mediaAnos"></div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="card-title">
+            <img src="../../../img/desperdicio.png" class="card-icon">
+            Média de dias
+        </div>
+
+        <div class="card-value" id="mediaDias"></div>
+
+    </div>
+
+</div>
+
+    <div class="usuarios-search">
+
+    <div class="search-box">
+
+        <img src="../../../img/search.png" class="search-icon">
+
+        <input type="text" id="searchInput" placeholder="Pesquisar administrador por nome ou ID...">
+
+    </div>
+
+</div>
+
+    <div class="table-container">
+
+        <table class="usuarios-table">
+
+            <thead>
+            <tr>
+            <th>ID</th>
+            <th>Administrador</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Anos</th>
+            <th>Dias</th>
+            </tr>
+            </thead>
+
+            <tbody id="tabelaAdm">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</div>
+<script>
+function carregarAdm() {
+  fetch("http://localhost:8000/banco/routes/listar_adm.php")
+    .then(res => res.json())
+    .then(data => {
+
+      const tabela = document.getElementById("tabelaAdm");
+      tabela.innerHTML = "";
+
+      data.forEach(adm => {
+
+        const linha = `
+          <tr>
+            <td>${adm.id}</td>
+
+            <td class="user-cell">
+              <div class="user-info">
+                <img src="../../../img/iconusuario.png" class="user-avatar">
+                <span>${adm.nome}</span>
+              </div>
+            </td>
+
+            <td>${adm.email}</td>
+
+            <td>••••••••</td>
+
+            <td>${adm.anos}</td>
+
+            <td>${adm.dias}</td>
+          </tr>
+        `;
+
+        tabela.innerHTML += linha;
+      });
+
+    })
+    .catch(err => console.error("Erro ao carregar admins:", err));
+}
+
+carregarAdm();
+</script>
+
+<script>
+fetch("http://localhost:8000/banco/routes/stats_adm.php")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("totalAdm").innerText = data.total;
+    document.getElementById("mediaAnos").innerText = data.media_anos;
+    document.getElementById("mediaDias").innerText = data.media_dias;
+  });
+</script>
+
+<script>const input = document.getElementById("searchInput");
+
+if (input) {
+  input.addEventListener("keyup", function () {
+    const filtro = input.value.toLowerCase().trim();
+    const linhas = document.querySelectorAll(".usuarios-table tbody tr");
+
+    linhas.forEach(linha => {
+      const id = linha.children[0].innerText.trim();
+      const nome = linha.querySelector(".user-info span").innerText.toLowerCase();
+
+      if (filtro === "") {
+        linha.style.display = "";
+        return;
+      }
+
+      let mostrar = false;
+
+      if (!isNaN(filtro)) {
+        mostrar = id === filtro;
+      } else {
+        mostrar = nome.startsWith(filtro);
+      }
+
+      linha.style.display = mostrar ? "" : "none";
+    });
+  });
+}</script>
+<script>document.querySelector(".sair-btn").addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    fetch("http://localhost:8000/banco/routes/logout.php")
+    .then(res => res.json())
+    .then(data => {
+
+        if(data.status === "ok"){
+
+            window.location.href = "../../index/index.html";
+
+        }
+
+    })
+    .catch(err => {
+        console.error("Erro ao sair:", err);
+    });
+
+});</script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

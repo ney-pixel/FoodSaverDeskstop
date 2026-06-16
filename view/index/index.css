@@ -1,0 +1,467 @@
+      /* ANIMAÇÃO DE ENTRADA DO DASHBOARD NQL PIQUE AURAXX */
+      .cards-container{
+    animation:fadeUp 0.8s ease;
+    }
+
+    @keyframes fadeUp{
+        from{
+            opacity:0;
+            transform:translateY(30px);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+
+
+
+
+/*ANIMAÇÃO ENTRADA LOGIN */
+#login-container{
+    animation:loginFade 0.8s ease;
+}
+
+@keyframes loginFade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+       /*LOGIN CONTAINER*/
+#login-container {
+    width: 380px;
+    padding: 45px 35px;
+    background: rgba(0, 0, 0, 0.9); 
+    border: 2px solid rgb(5, 140, 66); 
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(22, 219, 101, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: "Electrolize", sans-serif;
+     animation: loginFloat 6s ease-in-out infinite;
+  
+}
+
+    @keyframes loginFloat{
+    0%,100%{
+    transform:translate(-50%,-50%);
+    }
+    50%{
+    transform:translate(-50%,-53%);
+    }
+    }
+
+#login-container .food-icon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+  opacity: 0.18;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: floatIcon 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(22,219,101,0.4));
+}
+
+#login-container .icon1 { background-image: url('../../img/cenoura.png'); top: 12px; left: 12px; }
+#login-container .icon2 { background-image: url('../../img/pao.png'); top: 12px; right: 12px; }
+#login-container .icon3 { background-image: url('../../img/morango.png'); bottom: 12px; left: 12px; }
+#login-container .icon4 { background-image: url('../../img/frango.png'); bottom: 12px; right: 12px; }
+
+@keyframes floatIcon {
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* TÍTULO COM LOGO */
+#login-container h1{
+    font-family:"Zalando Sans Expanded", sans-serif;
+    color:rgb(22,219,101);
+    margin-bottom:30px;
+    font-size:28px;
+    text-shadow:0 0 15px rgba(22,219,101,0.5);
+}
+
+/* Logo do FoodSaver ao lado do título */
+#login-container h1 img{
+    width:40px;
+    margin-right:8px;
+}
+
+/* INPUTS */
+#login-container input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    background:#0b0b0b;
+    border:1px solid rgba(22,219,101,0.3);
+    border-radius:6px;
+    color:white;
+    font-family:"Electrolize", sans-serif;
+    transition:all 0.25s ease;
+}
+
+/* Hover e foco nos inputs */
+#login-container input:focus{
+    outline:none;
+    border-color:rgb(22,219,101);
+    box-shadow:0 0 10px rgba(22,219,101,0.4);
+}
+#login-container:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 60px rgba(0,0,0,0.9),
+    0 0 30px rgba(22,219,101,0.35);
+}
+
+#login-container input::placeholder{
+    color:rgba(255,255,255,0.4);
+}
+
+/* ÍCONES NOS INPUTS */
+#user {
+    background-image: url('../../img/iconusuario.png');
+    border-color: rgba(22,219,101,0.6);
+    transition: all 0.3s ease;
+}
+#pass {
+    background-image: url('../../img/iconsenha.png');
+    border-color: rgba(22,219,101,0.6);
+    transition: all 0.3s ease;
+}
+
+/* Glow nos ícones ao focar input */
+#user:focus {
+    box-shadow: 0 0 12px rgba(22,219,101,0.8), inset 0 0 8px rgba(22,219,101,0.3);
+}
+#pass:focus {
+    box-shadow: 0 0 12px rgba(22,219,101,0.8), inset 0 0 8px rgba(22,219,101,0.3);
+}
+
+/* Placeholder mais suave nql pique*/
+#login-container input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* BOTÃO ENTRAR */
+#login-container button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:linear-gradient(
+        90deg,
+        rgb(22,219,101),
+        rgb(5,140,66)
+    );
+    border:none;
+    border-radius:6px;
+    color:white;
+    font-family:"Electrolize", sans-serif;
+    font-size:15px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+
+#login-container button:hover{
+    transform:translateY(-2px);
+    box-shadow:
+    0 0 15px rgba(22,219,101,0.6),
+    0 0 30px rgba(22,219,101,0.3);
+
+}
+
+/*RESPONSIVO */
+@media (max-width: 420px) {
+    #login-container {
+        width: 90%;
+        padding: 30px 25px;
+    }
+    #login-container h1 {
+        font-size: 24px;
+    }
+    #login-container h1 img {
+        width: 32px;
+        height: 32px;
+    }
+    #login-container input {
+        padding-left: 40px;
+    }
+}
+
+/* DETALHES FOOD SAVER */
+/* sombra verde neon ao redor do container */
+#login-container::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border-radius: 22px;
+    border: 2px solid rgba(22,219,101,0.5);
+    box-shadow: 0 0 35px rgba(22,219,101,0.5);
+    z-index: -1;
+}
+
+/* HOME DASHBOARD */
+
+.home-container{
+    width:92%;
+    max-width:1400px;
+    margin:auto;
+    padding-top:120px;
+    text-align:center;
+    font-family:"Electrolize", sans-serif;
+}
+
+/* seção de boas vindas */
+
+.welcome-section{
+    margin-bottom:60px;
+}
+
+.welcome-section h1{
+    color:rgb(22,219,101);
+    font-size:40px;
+    margin-bottom:15px;
+    text-shadow:0 0 15px rgba(22,219,101,0.7);
+}
+
+.welcome-section p{
+    color:white;
+    font-size:18px;
+    opacity:0.8;
+}
+
+/* container dos cards */
+
+.cards-container{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+/* cards */
+
+.home-card{
+
+    position:relative;
+    overflow:hidden;
+    width:320px;
+    background:#0b0b0b;
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(22,219,101,0.15);
+    backdrop-filter: blur(10px);
+    border:2px solid rgb(5,140,66);
+    border-radius:10px;
+    padding:30px;
+    text-align:center;
+    transition:all 0.35s ease;
+    box-shadow:0 0 15px rgba(22,219,101,0.3);
+    padding:25px;
+}
+
+    .home-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+   border-radius:10px;
+    padding:1px;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(22,219,101,0.6),
+        transparent
+    );
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite:exclude;
+    animation: cardGlow 4s linear infinite;
+}
+
+@keyframes cardGlow{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+/* hover */
+
+.home-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.8),
+    0 0 25px rgba(22,219,101,0.35);
+}
+
+/* icone */
+
+.card-icon{
+
+    font-size:50px;
+
+    margin-bottom:10px;
+}
+
+    .card-icon img{
+    transition:all 0.35s ease;
+    }
+
+    .home-card:hover .card-icon img{
+    transform:scale(1.2);
+    filter:
+    drop-shadow(0 0 10px rgba(22,219,101,0.8))
+    drop-shadow(0 0 20px rgba(22,219,101,0.5));
+    }
+
+/* titulo */
+
+.home-card h2{
+
+    color:rgb(22,219,101);
+
+    margin-bottom:10px;
+}
+
+/* texto */
+
+.home-card p{
+
+    font-size:15px;
+
+    opacity:0.8;
+
+    margin-bottom:15px;
+}
+
+/* lista */
+
+.home-card ul{
+    list-style:none;
+    padding:0;
+    margin-top:15px;
+}
+
+.home-card li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:10px 0;
+    font-size:14px;
+    opacity:0.85;
+    padding-left:10px;
+    transition:0.2s;
+}
+
+.home-card li:hover{
+    transform:translateX(6px);
+    color:rgb(22,219,101);
+    }
+
+.list-icon{
+    width:20px;
+    height:20px;
+    flex-shrink:0;
+    transition:0.2s;
+}
+
+.home-card ul li:hover .list-icon{
+    transform:scale(1.2);
+    filter:drop-shadow(0 0 4px rgb(22,219,101));
+}
+.list-icon{
+    width:18px;
+    margin-right:8px;
+    vertical-align:middle;
+    transition:0.2s;
+}
+
+.home-card ul li{
+    margin:8px 0;
+}
+
+.home-card ul li:hover .list-icon{
+    transform:scale(1.2);
+    filter:drop-shadow(0 0 4px rgb(22,219,101));
+}
+
+.card-icon img{
+    width:55px;
+    height:auto;
+    filter: drop-shadow(0 0 6px rgba(120,200,255,0.6));
+}
+
+.welcome-section h1{
+    animation: titleGlow 4s ease-in-out infinite;
+    }
+    @keyframes titleGlow{
+    0%,100%{
+    text-shadow:0 0 15px rgba(22,219,101,0.6);
+    }
+    50%{
+    text-shadow:
+    0 0 25px rgba(22,219,101,0.9),
+    0 0 40px rgba(22,219,101,0.5);
+    }
+
+}
+
+/*se der erro no login ai*/
+#erro-login{
+    color:#FF5C5C;
+    font-size:14px;
+    margin-top:10px;
+    min-height:20px;
+
+    opacity:0;
+    transform:translateY(-5px);
+
+    transition:0.25s;
+
+    text-align:left;
+    width:100%;
+}
+
+#erro-login.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/*botao de sair*/
+.sair-btn{
+    transition:0.25s;
+    border-radius:6px;
+    padding-left:10px !important;
+}
+
+.sair-btn:hover{
+
+    background:rgba(255,92,92,0.12);
+
+    color:#FF5C5C !important;
+
+    box-shadow:0 0 10px rgba(255,92,92,0.15);
+
+    transform:translateX(3px);
+}

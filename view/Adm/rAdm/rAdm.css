@@ -1,0 +1,487 @@
+/* CONTAINER PRINCIPAL */
+
+.usuarios-container{
+    width:900px;
+    margin:120px auto 40px auto;
+    color:white;
+    font-family:"Electrolize", sans-serif;
+}
+
+
+/* HEADER */
+
+.usuarios-header h1{ 
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:rgb(22,219,101);
+    font-size:28px;
+    text-shadow:0 0 10px rgba(22,219,101,0.35);
+    }
+
+.title-icon{
+    width:26px;
+}
+
+.usuarios-header p{
+    opacity:0.7;
+}
+
+
+
+/* WARNING CARD */
+
+.warning-card{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    background:#0f0f0f;
+    border:1px solid rgba(255,200,87,0.35);
+
+    padding:15px 18px;
+    border-radius:8px;
+
+    margin:25px 0;
+
+    transition:0.25s;
+}
+
+.warning-card:hover{
+    border-color:#FFC857;
+    box-shadow:0 0 10px rgba(255,200,87,0.25);
+}
+
+.warning-icon{
+    width:22px;
+    opacity:0.9;
+}
+
+.warning-text strong{
+    color:#FFC857;
+    font-size:15px;
+}
+
+.warning-text p{
+    margin:3px 0 0 0;
+    opacity:0.65;
+    font-size:14px;
+}
+
+
+
+
+
+/* SEARCH */
+
+.usuarios-search{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+.search-box{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.search-icon{
+    position:absolute;
+    left:10px;
+    width:16px;
+    opacity:0.6;
+}
+
+.search-box input{
+    width:280px;
+    padding:10px 14px;
+    padding-left:35px;
+
+    background:#0f0f0f;
+    border:1px solid rgba(22,219,101,0.3);
+    border-radius:5px;
+
+    color:white;
+    font-family:"Electrolize", sans-serif;
+    font-size:14px;
+
+    outline:none;
+    transition:0.25s;
+}
+
+.search-box input::placeholder{
+    color:rgba(255,255,255,0.4);
+}
+
+.search-box input:focus{
+    border-color:rgb(22,219,101);
+    box-shadow:0 0 8px rgba(22,219,101,0.25);
+}
+
+.search-box:hover .search-icon{
+    opacity:1;
+    filter:drop-shadow(0 0 4px rgba(22,219,101,0.6));
+}
+
+.search-icon{
+    width:16px;
+    opacity:0.7;
+}
+
+
+
+/* TABELA */
+
+.table-container{
+margin-top:25px;
+border-radius:8px;
+overflow:hidden;
+box-shadow:
+0 12px 35px rgba(0,0,0,0.8);
+}
+
+.usuarios-table{
+    width:100%;
+    border-collapse:collapse;
+
+    background:#0b0b0b;
+
+    border:1px solid rgba(22,219,101,0.15);
+    border-radius:6px;
+
+    overflow:hidden;
+}
+
+.usuarios-table th{
+    text-align:left;
+    padding:14px;
+
+    background:#111;
+
+    color:rgb(22,219,101);
+    font-weight:500;
+}
+
+.usuarios-table td{
+    padding:12px;
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/*Hover das tabelas */
+.usuarios-table tbody tr{
+transition:all 0.2s ease;
+}
+.usuarios-table tbody tr:hover{
+background:rgba(22,219,101,0.08);
+transform:scale(1.01);
+box-shadow:0 5px 15px rgba(0,0,0,0.6);
+}
+
+/* ZEBRA */
+.usuarios-table tbody tr:nth-child(even){
+    background:rgba(255,255,255,0.03);
+}
+
+/* BOTÃO EXCLUIR */
+
+/* BOTÃO REATIVAR */
+
+.reactivate-btn{
+display:flex;
+align-items:center;
+gap:6px;
+background:linear-gradient(
+135deg,
+rgba(255,200,87,0.18),
+rgba(255,200,87,0.08)
+);
+color:#FFC857;
+border:1px solid rgba(255,200,87,0.35);
+padding:7px 13px;
+border-radius:6px;
+cursor:pointer;
+font-family:"Electrolize", sans-serif;
+font-size:13px;
+transition:0.25s;
+}
+
+.reactivate-btn img{
+width:14px;
+}
+
+.reactivate-btn:hover{
+background:rgba(255,200,87,0.25);
+border-color:#FFC857;
+box-shadow:
+0 0 10px rgba(255,200,87,0.35),
+0 0 20px rgba(255,200,87,0.15);
+transform:scale(1.05);
+}
+
+
+
+
+
+/* CARD DE CONFIRMAÇÃO PARA EXCLUIR */
+/* FUNDO ESCURO */
+
+.reactivate-modal{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.65);
+
+    backdrop-filter:blur(4px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.25s;
+}
+
+/* QUANDO ATIVO */
+
+.reactivate-modal.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+
+
+/* CARD */
+
+.reactivate-card{
+
+    position:relative;
+    overflow:hidden;
+    background:#0f0f0f;
+    border:1px solid rgba(255,200,87,0.35);
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    width:360px;
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.8),
+    0 0 12px rgba(255,200,87,0.2);
+    animation:modalEnter 0.25s ease;
+}
+
+.reactivate-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:linear-gradient(
+    90deg,
+    #FFC857,
+    #ffe29a
+    );
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes modalEnter{
+
+    from{
+        transform:translateY(-10px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+
+
+/* ICONE */
+
+.reactivate-warning-icon{
+    width:30px;
+    margin-bottom:12px;
+    animation:warningPulse 2s infinite;
+}
+    @keyframes warningPulse{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.1); }
+    100%{ transform:scale(1); }
+    }
+
+
+
+/* TITULO */
+
+.reactivate-card h2{
+
+    color:#FFC857;
+
+    margin-bottom:10px;
+
+    font-size:20px;
+
+}
+
+
+
+/* TEXTO */
+
+.reactivate-card p{
+
+    opacity:0.7;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* BOTÕES */
+
+.delete-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+
+/* CANCELAR */
+
+.cancel-btn{
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-family:"Electrolize", sans-serif;
+
+    transition:0.2s;
+}
+
+.cancel-btn:hover{
+
+    border-color:rgb(22,219,101);
+
+    color:rgb(22,219,101);
+
+}
+
+
+/* CONFIRMAR */
+
+.confirm-reactivate-btn{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    background:rgba(255,200,87,0.15);
+
+    color:#FFC857;
+
+    border:1px solid rgba(255,200,87,0.35);
+
+    padding:8px 16px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-family:"Electrolize", sans-serif;
+
+    transition:0.25s;
+}
+
+.confirm-reactivate-btn img{
+    width:14px;
+}
+
+.confirm-reactivate-btn:hover{
+
+    background:rgba(255,200,87,0.25);
+
+    border-color:#FFC857;
+
+    box-shadow:0 0 10px rgba(255,200,87,0.4);
+
+}
+
+/*BADGE PARA NIVEL*/
+.badge-nivel{
+    background:rgba(22,219,101,0.15);
+    color:rgb(22,219,101);
+    padding:4px 8px;
+    border-radius:4px;
+    font-size:13px;
+}
+
+
+/*MUDANÇAS QUE TEORICAMENTE VAO DEIXAR MASI DAORA */
+
+/*AVATAR DE USUARIO*/
+.user-info{
+display:flex;
+align-items:center;
+gap:10px;
+}
+.user-avatar{
+width:28px;
+height:28px;
+border-radius:50%;
+background:#111;
+padding:4px;
+border:1px solid rgba(22,219,101,0.25);
+transition:0.25s;
+}
+.usuarios-table tr:hover .user-avatar{
+border-color:rgb(22,219,101);
+box-shadow:0 0 6px rgba(22,219,101,0.6);
+}
+
+/*botao de sair*/
+.sair-btn{
+    transition:0.25s;
+    border-radius:6px;
+    padding-left:10px !important;
+}
+
+.sair-btn:hover{
+
+    background:rgba(255,92,92,0.12);
+
+    color:#FF5C5C !important;
+
+    box-shadow:0 0 10px rgba(255,92,92,0.15);
+
+    transform:translateX(3px);
+}

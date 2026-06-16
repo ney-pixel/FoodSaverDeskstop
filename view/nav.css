@@ -1,0 +1,393 @@
+body{
+
+background:
+
+/* luz ambiente neutra (cinza/branco) */
+radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 45%),
+radial-gradient(circle at 80% 80%, rgba(255,255,255,0.04), transparent 45%),
+
+/* grid principal */
+linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+
+/* grid fino (detalhe tecnológico) */
+linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px),
+
+#000;
+
+background-size:
+
+auto,
+auto,
+
+40px 40px,
+40px 40px,
+
+12px 12px,
+12px 12px;
+
+color:white;
+margin:0;
+
+animation: backgroundMove 60s linear infinite;
+
+}
+@keyframes backgroundMove{
+
+0%{
+background-position:
+0 0,
+0 0,
+0 0,
+0 0,
+0 0,
+0 0;
+}
+
+100%{
+background-position:
+150px 150px,
+-150px -150px,
+40px 40px,
+40px 40px,
+12px 12px,
+12px 12px;
+}
+
+}
+body::before{
+
+content:"";
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+/* névoa tecnológica branca */
+background:
+
+radial-gradient(circle at 30% 70%, rgba(255,255,255,0.05), transparent 50%),
+radial-gradient(circle at 70% 30%, rgba(255,255,255,0.03), transparent 50%);
+
+mix-blend-mode:overlay;
+
+animation: glowMove 25s ease-in-out infinite;
+
+}
+    @keyframes glowMove{
+
+0%{ transform:translate(0,0); }
+
+50%{ transform:translate(-30px,20px); }
+
+100%{ transform:translate(0,0); }
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+/* foco no centro */
+background:radial-gradient(circle, transparent 55%, rgba(0,0,0,0.75));
+
+}
+
+
+/*PARTICULAS DO BODY EFEITO INSANO */
+    .particles{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        pointer-events:none;
+        overflow:hidden;
+        z-index:-1;
+        }
+
+        .particles span{
+
+          position:absolute;
+            width:4px;
+            height:4px;
+            background:rgb(22,219,101);
+            border-radius:50%;
+            box-shadow:
+            0 0 6px rgb(22,219,101),
+            0 0 12px rgba(22,219,101,0.8);
+           opacity:0.6;
+         animation:particleFloat linear infinite;
+            }
+
+            .particles span:nth-child(1){
+            left:10%;
+            animation-duration:18s;
+            animation-delay:0s;
+            }
+
+            .particles span:nth-child(2){
+            left:25%;
+            animation-duration:22s;
+            animation-delay:3s;
+            }
+
+            .particles span:nth-child(3){
+            left:40%;
+            animation-duration:20s;
+            animation-delay:6s;
+            }
+
+            .particles span:nth-child(4){
+            left:60%;
+            animation-duration:24s;
+            animation-delay:2s;
+            }
+
+            .particles span:nth-child(5){
+            left:75%;
+            animation-duration:19s;
+            animation-delay:4s;
+            }
+
+            .particles span:nth-child(6){
+            left:90%;
+            animation-duration:23s;
+            animation-delay:7s;
+            }
+
+
+            @keyframes particleFloat{
+            0%{
+            transform:translateY(100vh) scale(0.8);
+            opacity:0;
+            }
+            10%{
+            opacity:0.6;
+            }
+            90%{
+            opacity:0.6;
+            }
+            100%{
+            transform:translateY(-10vh) scale(1.2);
+            opacity:0;
+            }
+            }
+
+
+           
+        /*INDICAÇÃO MARCAÇÃO DO VISUALIZAR USUARIOS */
+        .active-menu{
+            background:rgba(22,219,101,0.12);
+            color:rgb(22,219,101) !important;
+
+            border-left:3px solid rgb(22,219,101);
+
+            box-shadow:
+            inset 0 0 8px rgba(22,219,101,0.25),
+            0 0 8px rgba(22,219,101,0.2);
+        }
+
+        .active-menu:hover{
+            background-color: rgba(22,219,101,0.25);
+        }
+
+        .active-section{
+            color: rgb(22,219,101) !important;
+        }
+
+
+
+        /* BOTÃO DE MENU */
+      .navbar-toggler {
+            background-color: #000 !important; 
+            border: 1px solid rgba(5, 140, 66, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:hover {
+           background-color: #000 !important;
+            border-color: rgb(22, 219, 101);
+            box-shadow: 0 0 10px rgba(22, 219, 101, 0.6);
+        }
+
+        /* COR DOS TRÊS RISCOS DO BOTÃO */
+        .navbar-toggler:hover .navbar-toggler-icon {
+            filter: invert(60%) sepia(80%) saturate(400%) hue-rotate(90deg);
+        }
+
+        /* PEQUENA ANIMAÇÃO NO HOVER */
+        .navbar-toggler:hover {
+            transform: scale(1.05);
+        }
+
+        /* HOVER VERDE PARA OS ITENS DROPDOWN DO MENU */
+      .dropdown-item:hover {
+            background-color: rgba(5, 140, 66, 0.15);
+            color: rgb(22, 219, 101) !important;
+        }
+
+        
+        .nav-link.dropdown-toggle:hover {
+            color: rgb(22, 219, 101) !important;
+        }
+
+        /* GLOW LEVE NOS BOTÕES PRINCIPAIS */
+      .nav-link.dropdown-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link.dropdown-toggle:hover {
+            text-shadow: 0 0 8px rgba(5, 140, 66, 0.6);
+        }
+
+        /* GLOW LEVE NOS ITENS DO DROPDOWN */
+        .dropdown-menu {
+            box-shadow: 0 0 20px rgba(5, 140, 66, 0.15);
+        }
+
+        .dropdown-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-item{
+            transition: all 0.25s ease;
+        }
+
+        .dropdown-item:hover{
+            background:rgba(22,219,101,0.08);
+            color:rgb(22,219,101) !important;
+
+            padding-left:22px;
+
+            text-shadow:0 0 8px rgba(22,219,101,0.6);
+        }
+                .titulo{
+            color: rgb(22, 219, 101);
+            font-family: "Zalando Sans Expanded", sans-serif;
+        }
+        .navbar{
+            background-color: black !important;
+            background:rgba(0,0,0,0.75) !important;
+            border-bottom:1px solid rgba(22,219,101,0.3);
+            box-shadow: 0 4px 12px rgba(5, 140, 66, 0.3);
+            
+        }
+
+        .navbar:hover{
+          box-shadow: 0 6px 16px rgba(22, 219, 101, 0.35);
+          transition: all 0.3s ease;
+        }
+        .logo img{
+            width: 35px;
+            height: auto;
+            padding-right: 10px;
+        }
+
+        .offcanvas-body {
+            position: relative;
+        }
+
+        .menu-center {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0.05;
+
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .offcanvas-body ul {
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-center img {
+            width: 180px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(5,140,66,0.4));
+        }
+
+        .navbar .container-fluid {
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+        .navbar .navbar-toggler {
+            position: absolute; 
+            right: 10px;        
+        }
+
+        .offcanvas.menu .dropdown-menu {
+            background-color: black; /* Fundo preto no menu dropdown */
+            background:#000 !important;
+            border-left: 2px solid rgb(5, 140, 66);;
+        }
+
+        .offcanvas.menu {
+            background:#000 !important;
+            background: linear-gradient(
+                180deg,
+                #000000 0%,
+                #061a12 50%,
+                #000000 100%
+            ) !important;
+            border-left: 2px solid rgb(5, 140, 66);
+        }
+
+        .titu{
+            font-family: "Electrolize", sans-serif;
+        }
+        .dropdown-item{
+            font-family: "Electrolize", sans-serif;
+        }
+
+        .dropdown-toggle{
+          font-family: "Electrolize", sans-serif;
+        }
+
+        .dropdown-item::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:0;
+            height:100%;
+            width:3px;
+            background:rgb(22,219,101);
+
+            transform:scaleY(0);
+            transform-origin:bottom;
+            transition:transform 0.25s ease;
+        }
+
+        .dropdown-item:hover::before{
+            transform:scaleY(1);
+        }
+
+        /* GLOW SUAVE NO MENU INTEIRO TEORICAMENTE PARECE FLUTUANDO */
+            .offcanvas.menu{
+            box-shadow:
+            -10px 0 40px rgba(0,0,0,0.8),
+            -2px 0 20px rgba(22,219,101,0.2);
+        }

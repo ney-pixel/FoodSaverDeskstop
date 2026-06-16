@@ -1,0 +1,24 @@
+{
+  "name": "foodsaverdeskstop",
+  "version": "1.0.0",
+  "description": "FoodSaverDeskstop",
+  "homepage": "https://github.com/ney-pixel/FoodSaverDeskstop#readme",
+  "bugs": {
+    "url": "https://github.com/ney-pixel/FoodSaverDeskstop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ney-pixel/FoodSaverDeskstop.git"
+  },
+  "license": "MIT",
+  "author": "Heitor Seiji Aoki",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron  ."
+  },
+  "devDependencies": {
+    "electron": "^41.2.2"
+  }
+}

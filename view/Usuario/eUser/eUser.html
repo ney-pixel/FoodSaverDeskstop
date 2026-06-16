@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodSaver - Excluir Usuários</title>
+    <link rel="stylesheet" href="../../nav.css">
+    <link rel="stylesheet" href="eUser.css">
+</head>
+<body>
+    <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+    
+
+    
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <span class="logo"><img src="../../../img/logo.png" alt="logo"></span>
+    <a class="navbar-brand" href="#"><span class="titulo">FoodSaver</span></a>
+    <button id="menu-btn" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark menu" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title titu" id="offcanvasDarkNavbarLabel">Gerenciamento</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active-section" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Usuários
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="../vUser/vUser.html">Visualizar</a></li>
+              <li><a class="dropdown-item active-menu" href="#">Excluir</a></li>
+              <li><a class="dropdown-item" href="../aUser/aUser.html">Atualizar</a></li>
+              <li><a class="dropdown-item" href="../cUser/cUser.html">Criar</a></li>
+              <li>
+
+              </li>
+            </ul>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administradores
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="../../Adm/vAdm/vAdm.html">Visualizar</a></li>
+              <li><a class="dropdown-item" href="../../Adm/eAdm/eAdm.html">Excluir</a></li>
+              <li><a class="dropdown-item" href="../../Adm/aAdm/aAdm.html">Atualizar</a></li>
+              <li><a class="dropdown-item" href="../../Adm/cAdm/cAdm.html">Criar</a></li>
+              <li>
+
+              </li>
+            </ul>
+
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Reativar
+            </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="../rUser/rUser.html">Usuário</a></li>
+              <li><a class="dropdown-item" href="../../Adm/rAdm/rAdm.html">Administrador</a></li>
+
+              <li>
+                </li>
+                </ul>
+
+                <a class="nav-link sair-btn" href="#" role="button" aria-expanded="false">
+              Sair
+            </a>
+            
+          </li>
+        </ul>
+              <div class="menu-center">
+          <img src="../../../img/logo100.png" alt="logo100">
+
+      </div>
+      </div>
+    </div>
+  </div>
+</nav>
+    
+<div class="usuarios-container">
+
+    <div class="usuarios-header">
+        <h1>
+            <img src="../../../img/delete.png" class="title-icon">
+            Excluir Usuário
+        </h1>
+        <p>Remova usuários cadastrados do sistema FoodSaver</p>
+    </div>
+
+
+
+
+    /*barra de pesquisa*/
+
+    <div class="usuarios-search">
+
+        <div class="search-box">
+
+            <img src="../../../img/search.png" class="search-icon">
+
+            <input type="text" id="searchInput" placeholder="Pesquisar usuário por nome ou ID...">
+
+        </div>
+
+    </div>
+
+
+    /*tabelaxxxxxx*/
+
+    <div class="table-container">
+
+        <table class="usuarios-table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Senha</th>
+                    <th>Nível</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaUsuarios">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div id="delete-modal" class="delete-modal">
+
+    <div class="delete-card">
+
+        <img src="../../../img/warning.png" class="delete-warning-icon">
+
+        <h2>Confirmar exclusão</h2>
+
+        <p>Tem certeza que deseja excluir este usuário?<br>
+        </p>
+
+        <div class="delete-actions">
+
+            <button class="cancel-btn" onclick="fecharModal()">Cancelar</button>
+
+            <button class="confirm-delete-btn" onclick="excluirUsuario()">
+                <img src="../../../img/excluirred.png">
+                Confirmar exclusão
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    let usuarioSelecionado = null;
+
+function carregarUsuarios() {
+  fetch("http://localhost:8000/banco/routes/listar_usuarios.php")
+    .then(res => res.json())
+    .then(data => {
+      const tabela = document.getElementById("tabelaUsuarios");
+      tabela.innerHTML = "";
+
+      data.forEach(user => {
+        const linha = `
+          <tr>
+            <td>${user.id}</td>
+
+            <td class="user-cell">
+              <div class="user-info">
+                <img src="../../../img/iconusuario.png" class="user-avatar">
+                <span>${user.nome}</span>
+              </div>
+            </td>
+
+            <td>${user.email}</td>
+
+            <td>*******</td>
+
+            <td><span class="badge-nivel">Lv ${user.nivel ?? 0}</span></td>
+
+            <td>
+              <button class="delete-btn" onclick="abrirModal(${user.id})">
+                <img src="../../../img/excluirred.png">
+                Excluir
+              </button>
+            </td>
+          </tr>
+        `;
+        tabela.innerHTML += linha;
+      });
+    });
+}
+
+carregarUsuarios();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+
+function abrirModal(id){
+    usuarioSelecionado = id;
+    document.getElementById("delete-modal").classList.add("active");
+}
+
+function fecharModal(){
+    usuarioSelecionado = null;
+    document.getElementById("delete-modal").classList.remove("active");
+}
+function excluirUsuario() {
+
+  if (!usuarioSelecionado) return;
+
+  fetch("http://localhost:8000/banco/routes/excluir_usuario.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: "id=" + usuarioSelecionado
+  })
+  .then(res => res.json())
+  .then(data => {
+
+    alert(data.msg);
+
+    if (data.status === "ok") {
+      fecharModal();
+      carregarUsuarios(); 
+    }
+
+  })
+  .catch(err => console.error(err));
+}
+
+</script>
+<script>
+const input = document.getElementById("searchInput");
+
+if (input) {
+  input.addEventListener("keyup", function () {
+    const filtro = input.value.toLowerCase().trim();
+
+    const linhas = document.querySelectorAll(".usuarios-table tbody tr");
+
+    linhas.forEach(linha => {
+      const id = linha.children[0].innerText.trim();
+      const nome = linha.querySelector(".user-info span").innerText.toLowerCase();
+
+      let mostrar = false;
+
+      if (!isNaN(filtro) && filtro !== "") {
+        mostrar = id === filtro;
+      } 
+
+      else {
+        mostrar = nome.startsWith(filtro);
+      }
+
+      linha.style.display = mostrar || filtro === "" ? "" : "none";
+    });
+  });
+}
+</script>
+
+<script>document.querySelector(".sair-btn").addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    fetch("http://localhost:8000/banco/routes/logout.php")
+    .then(res => res.json())
+    .then(data => {
+
+        if(data.status === "ok"){
+
+            window.location.href = "../../index/index.html";
+
+        }
+
+    })
+    .catch(err => {
+        console.error("Erro ao sair:", err);
+    });
+
+});</script>
+
+
+</body>
+</html>
