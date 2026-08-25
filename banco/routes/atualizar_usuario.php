@@ -19,10 +19,10 @@ if (!$id || !$nome || !$email || !$senha) {
 
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-$sql = "UPDATE FoodSaver_usuarios 
-        SET Nome = ?, 
-            Email = ?, 
-            Senha = ?
+$sql = "UPDATE FS_usuarios
+        SET nome_usuario = ?,
+            email = ?,
+            senha = ?
         WHERE id = ?";
 
 $stmt = $conn->prepare($sql);

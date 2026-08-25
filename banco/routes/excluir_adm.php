@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;
 }
 
-require "../config/conexao.php"; 
+require "../config/conexao.php";
 
 try {
 
@@ -22,9 +22,12 @@ try {
         throw new Exception("ID não fornecido.");
     }
 
-    $sql = "UPDATE FoodSaver_Adm SET ativo = 1 WHERE ID = ?";
+    $sql = "UPDATE FS_administradores 
+            SET ativo = 0 
+            WHERE id = ?";
+
     $stmt = $conn->prepare($sql);
-    
+
     if (!$stmt) {
         throw new Exception("Erro no prepare: " . $conn->error);
     }
@@ -32,12 +35,24 @@ try {
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "ok", "msg" => "Administrador desativado com sucesso!"]);
+
+        echo json_encode([
+            "status" => "ok",
+            "msg" => "Administrador desativado com sucesso!"
+        ]);
+
     } else {
+
         throw new Exception("Erro ao executar atualização.");
+
     }
 
 } catch (Exception $e) {
-    echo json_encode(["status" => "erro", "msg" => $e->getMessage()]);
+
+    echo json_encode([
+        "status" => "erro",
+        "msg" => $e->getMessage()
+    ]);
 }
+
 ?>

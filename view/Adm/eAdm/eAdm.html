@@ -134,7 +134,6 @@
                     <th>ID</th>
                     <th>Administrador</th>
                     <th>Email</th>
-                    <th>Senha</th>
                     <th>Dias</th>
                     <th>Ação</th>
                 </tr>
@@ -157,7 +156,7 @@
 
         <h2>Confirmar exclusão</h2>
 
-        <p>Tem certeza que deseja excluir este administrado?<br>
+        <p>Tem certeza que deseja excluir este administrador?<br>
         </p>
 
         <div class="delete-actions">
@@ -204,7 +203,6 @@ function carregarAdms() {
               </div>
             </td>
             <td>${adm.email}</td>
-            <td>••••••••</td>
             <td>${adm.dias || "-"}</td>
             <td>
               <button class="delete-btn" onclick="abrirModal(this)">

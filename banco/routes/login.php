@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 header("Content-Type: application/json");
@@ -19,24 +20,66 @@ if (empty($email) || empty($senha)) {
     exit;
 }
 
-$sql = "SELECT * FROM FoodSaver_Adm WHERE LOWER(Email) = LOWER(?)";
+// Busca o administrador pelo e-mail
+$sql = "SELECT id, nome, senha, ativo
+        FROM FS_administradores
+        WHERE LOWER(email) = LOWER(?)
+        LIMIT 1";
+
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-$stmt->execute();
 
-$result = $stmt->get_result();
-
-if ($result->num_rows === 0) {
+if (!$stmt) {
     echo json_encode([
         "status" => "erro",
-        "msg" => "Usuário não encontrado"
+        "msg" => "Erro ao preparar consulta"
     ]);
     exit;
 }
 
-$user = $result->fetch_assoc();
+$stmt->bind_param("s", $email);
+$stmt->execute();
 
-if (!password_verify($senha, $user['Senha'])) {
+// bind_result funciona sem mysqlnd
+$stmt->bind_result(
+    $adminId,
+    $adminNome,
+    $adminSenha,
+    $adminAtivo
+);
+
+$encontrado = $stmt->fetch();
+
+$stmt->close();
+
+if (!$encontrado) {
+    echo json_encode([
+        "status" => "erro",
+        "msg" => "Administrador não encontrado"
+    ]);
+    exit;
+}
+
+$adminSenha = (string) $adminSenha;
+
+if (!$encontrado) {
+    echo json_encode([
+        "status" => "erro",
+        "msg" => "Administrador não encontrado"
+    ]);
+    exit;
+}
+
+// Verifica se o administrador está ativo
+if (!$adminAtivo) {
+    echo json_encode([
+        "status" => "erro",
+        "msg" => "Administrador desativado"
+    ]);
+    exit;
+}
+
+// Verifica a senha
+if (!password_verify($senha, $adminSenha)) {
     echo json_encode([
         "status" => "erro",
         "msg" => "Senha incorreta"
@@ -44,12 +87,13 @@ if (!password_verify($senha, $user['Senha'])) {
     exit;
 }
 
-$_SESSION['usuario'] = [
-    "id" => $user['ID'],   
-    "nome" => $user['Nome']
+// Cria a sessão do administrador
+$_SESSION['administrador'] = [
+    "id"   => $adminId,
+    "nome" => $adminNome
 ];
 
 echo json_encode([
     "status" => "ok",
-    "nome" => $user["Nome"]
+    "nome"   => $adminNome
 ]);

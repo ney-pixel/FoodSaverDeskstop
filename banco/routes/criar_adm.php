@@ -7,7 +7,7 @@ header("Content-Type: application/json");
 require "../config/conexao.php";
 
 try {
-    
+
     $json = file_get_contents('php://input');
     $dados = json_decode($json, true);
 
@@ -16,19 +16,26 @@ try {
     $senha = $dados["senha"] ?? null;
 
     if (!$nome || !$email || !$senha) {
-        echo json_encode(["status" => "erro", "msg" => "Campos obrigatórios"]);
+        echo json_encode([
+            "status" => "erro",
+            "msg" => "Campos obrigatórios"
+        ]);
         exit;
     }
 
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
     $conn->begin_transaction();
 
-   
-    $sql = "INSERT INTO FoodSaver_Adm (nome, email, senha, ativo, created_at, updated_at)
-            VALUES (?, ?, ?, 0, NOW(), NOW())";
+    $sql = "INSERT INTO FS_administradores 
+            (nome, email, senha, ativo)
+            VALUES (?, ?, ?, 1)";
 
     $stmt = $conn->prepare($sql);
-    if (!$stmt) { throw new Exception("Erro prepare: " . $conn->error); }
+
+    if (!$stmt) {
+        throw new Exception("Erro prepare: " . $conn->error);
+    }
 
     $stmt->bind_param("sss", $nome, $email, $senhaHash);
 
@@ -37,6 +44,7 @@ try {
     }
 
     $admId = $stmt->insert_id;
+
     $conn->commit();
 
     echo json_encode([
@@ -46,10 +54,15 @@ try {
     ]);
 
 } catch (Exception $e) {
-    if(isset($conn)) $conn->rollback();
+
+    if (isset($conn)) {
+        $conn->rollback();
+    }
+
     echo json_encode([
         "status" => "erro",
         "msg" => $e->getMessage()
     ]);
 }
+
 ?>

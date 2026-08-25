@@ -161,12 +161,11 @@
 
             <thead>
             <tr>
-            <th>ID</th>
-            <th>Administrador</th>
-            <th>Email</th>
-            <th>Senha</th>
-            <th>Anos</th>
-            <th>Dias</th>
+                <th>ID</th>
+                <th>Administrador</th>
+                <th>Email</th>
+                <th>Anos</th>
+                <th>Dias</th>
             </tr>
             </thead>
 
@@ -193,24 +192,22 @@ function carregarAdm() {
 
         const linha = `
           <tr>
-            <td>${adm.id}</td>
+              <td>${adm.id}</td>
 
-            <td class="user-cell">
-              <div class="user-info">
-                <img src="../../../img/iconusuario.png" class="user-avatar">
-                <span>${adm.nome}</span>
-              </div>
-            </td>
+              <td class="user-cell">
+                  <div class="user-info">
+                      <img src="../../../img/iconusuario.png" class="user-avatar">
+                      <span>${adm.nome}</span>
+                  </div>
+              </td>
 
-            <td>${adm.email}</td>
+              <td>${adm.email}</td>
 
-            <td>••••••••</td>
+              <td>${adm.anos}</td>
 
-            <td>${adm.anos}</td>
-
-            <td>${adm.dias}</td>
+              <td>${adm.dias}</td>
           </tr>
-        `;
+      `;
 
         tabela.innerHTML += linha;
       });

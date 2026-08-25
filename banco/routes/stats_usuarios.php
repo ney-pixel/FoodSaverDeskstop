@@ -1,11 +1,19 @@
 <?php
+
 header("Content-Type: application/json");
+
 require "../config/conexao.php";
 
 
+// Total de usuários ativos
 $total = 0;
 
-$sql = "SELECT COUNT(*) as total FROM FoodSaver_usuarios";
+$sql = "
+    SELECT COUNT(*) AS total
+    FROM FS_usuarios
+    WHERE ativo = 1
+";
+
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
@@ -13,39 +21,45 @@ if ($result) {
 }
 
 
-$mediaNivel = 0;
+// Total de usuários Premium
+$totalPremium = 0;
 
 $sql = "
-    SELECT AVG(s.nivel) as media_nivel
-    FROM FoodSaver_usuario_stats s
-    JOIN FoodSaver_usuarios u ON u.id = s.usuario_id
+    SELECT COUNT(*) AS total
+    FROM FS_usuarios
+    WHERE ativo = 1
+    AND plano = 'premium'
 ";
 
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    $mediaNivel = mysqli_fetch_assoc($result)["media_nivel"] ?? 0;
-    $mediaNivel = $mediaNivel ? round($mediaNivel, 1) : 0;
+    $totalPremium = mysqli_fetch_assoc($result)["total"] ?? 0;
 }
 
 
-$mediaWaste = 0;
+// Total de usuários Gratuitos
+$totalGratuito = 0;
 
 $sql = "
-    SELECT AVG(r.total_desperdicio) as media_waste
-    FROM FoodSaver_usuario_resumo r
-    JOIN FoodSaver_usuarios u ON u.id = r.usuario_id
+    SELECT COUNT(*) AS total
+    FROM FS_usuarios
+    WHERE ativo = 1
+    AND plano = 'gratuito'
 ";
 
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    $mediaWaste = mysqli_fetch_assoc($result)["media_waste"] ?? 0;
-    $mediaWaste = $mediaWaste ? round($mediaWaste, 2) : 0;
+    $totalGratuito = mysqli_fetch_assoc($result)["total"] ?? 0;
 }
 
+
+// Retorno
 echo json_encode([
     "total_usuarios" => $total,
-    "media_nivel" => $mediaNivel,
-    "media_desperdicio" => $mediaWaste
+    "total_premium" => $totalPremium,
+    "total_gratuito" => $totalGratuito
 ]);
+
+?>

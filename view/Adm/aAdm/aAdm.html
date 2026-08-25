@@ -117,7 +117,7 @@
 
             <img src="../../../img/search.png" class="search-icon">
 
-            <input type="text" id="searchInput" placeholder="Pesquisar usuário por nome ou ID...">
+            <input type="text" id="searchInput" placeholder="Pesquisar administrador por nome ou ID...">
 
         </div>
 
@@ -129,12 +129,11 @@
 
 <thead>
 <tr>
-<th>ID</th>
-<th>Nome</th>
-<th>Email</th>
-<th>Senha</th>
-<th>Dias</th>
-<th>Ação</th>
+    <th>ID</th>
+    <th>Administrador</th>
+    <th>Email</th>
+    <th>Anos</th>
+    <th>Dias</th>
 </tr>
 </thead>
 
@@ -152,7 +151,7 @@
 
 <h2>
 <img src="../../../img/edit.png" class="modal-icon">
-Editar Usuário
+Editar Administrador
 </h2>
 
 <div class="form-group">
@@ -215,7 +214,6 @@ function carregarAdms() {
             </td>
 
             <td>${adm.email}</td>
-            <td>••••••••</td>
             <td>${adm.dias || "-"}</td>
 
             <td>

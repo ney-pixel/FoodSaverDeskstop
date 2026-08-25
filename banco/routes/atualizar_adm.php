@@ -1,5 +1,7 @@
 <?php
+
 header("Content-Type: application/json");
+
 require "../config/conexao.php";
 
 $data = json_decode(file_get_contents("php://input"), true);
@@ -9,27 +11,68 @@ $nome  = $data["nome"] ?? null;
 $email = $data["email"] ?? null;
 $senha = $data["senha"] ?? null;
 
-if (!$id || !$nome || !$email || !$senha) {
+if (!$id || !$nome || !$email) {
     echo json_encode([
         "status" => "erro",
-        "msg" => "Todos os campos são obrigatórios"
+        "msg" => "Nome e email são obrigatórios"
     ]);
     exit;
 }
 
 try {
 
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    /*
+     * Se a senha foi preenchida,
+     * atualiza nome, email e senha.
+     */
+    if (!empty($senha)) {
 
-    $sql = "UPDATE FoodSaver_Adm 
-            SET nome = ?, 
-                email = ?, 
-                senha = ?, 
-                updated_at = NOW()
-            WHERE id = ?";
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssi", $nome, $email, $senhaHash, $id);
+        $sql = "UPDATE FS_administradores
+                SET nome = ?,
+                    email = ?,
+                    senha = ?
+                WHERE id = ?";
+
+        $stmt = $conn->prepare($sql);
+
+        if (!$stmt) {
+            throw new Exception("Erro ao preparar atualização");
+        }
+
+        $stmt->bind_param(
+            "sssi",
+            $nome,
+            $email,
+            $senhaHash,
+            $id
+        );
+
+    } else {
+
+        /*
+         * Se a senha estiver vazia,
+         * mantém a senha atual.
+         */
+        $sql = "UPDATE FS_administradores
+                SET nome = ?,
+                    email = ?
+                WHERE id = ?";
+
+        $stmt = $conn->prepare($sql);
+
+        if (!$stmt) {
+            throw new Exception("Erro ao preparar atualização");
+        }
+
+        $stmt->bind_param(
+            "ssi",
+            $nome,
+            $email,
+            $id
+        );
+    }
 
     if ($stmt->execute()) {
 
@@ -44,8 +87,9 @@ try {
             "status" => "erro",
             "msg" => "Erro ao atualizar administrador"
         ]);
-
     }
+
+    $stmt->close();
 
 } catch (Exception $e) {
 
@@ -53,6 +97,5 @@ try {
         "status" => "erro",
         "msg" => $e->getMessage()
     ]);
-
 }
 ?>
