@@ -9,7 +9,7 @@ if (!$id) {
     exit;
 }
 
-$sql = "UPDATE FS_usuarios SET ativo = 1 WHERE id = ?";
+$sql = "UPDATE FS_administradores SET ativo = 1 WHERE id = ?";
 $stmt = $conn->prepare($sql);
 if (!$stmt) {
     echo json_encode([

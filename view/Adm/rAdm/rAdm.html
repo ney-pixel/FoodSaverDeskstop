@@ -101,7 +101,7 @@
     <div class="usuarios-header">
         <h1>
             <img src="../../../img/reactivate.png" class="title-icon">
-            Reativar Usuário
+            Reativar Administrador
         </h1>
         <p>Reative administradores desativados e cadastrados do sistema FoodSaver</p>
     </div>
@@ -109,7 +109,6 @@
 
 
 
-    /*barra de pesquisa*/
 
     <div class="usuarios-search">
 
@@ -124,7 +123,6 @@
     </div>
 
 
-    /*tabelu*/
 
     <div class="table-container">
 
@@ -133,10 +131,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nome</th>
+                    <th>Administrador</th>
                     <th>Email</th>
-                    <th>Senha</th>
-                    <th>Nível</th>
+                    <th>Anos</th>
+                    <th>Dias</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -201,14 +199,14 @@ function carregarUsuarios() {
 
             <td>${user.email}</td>
 
-            <td>*******</td>
+            <td>${user.anos}</td>
 
-            <td><span class="badge-nivel">Lv ${user.nivel ?? 0}</span></td>
+            <td>${user.dias}</td>
 
             <td>
               <button class="reactivate-btn" onclick="abrirModal(${user.id})">
                 <img src="../../../img/reativar.png">
-                Reativarr
+                Reativar
               </button>
             </td>
           </tr>
