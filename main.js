@@ -7,7 +7,6 @@ function createWindow() {
     backgroundColor: "#000",
   });
 
-  // 🔥 AGORA SIM (carrega via servidor PHP)
   win.loadURL("http://localhost:8000/view/index/index.html");
 }
 

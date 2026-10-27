@@ -35,7 +35,9 @@ if (!$stmt) {
 
 $stmt->bind_param("sss", $nome, $email, $senhaHash);
 
-if ($stmt->execute()) {
+try {
+
+    $stmt->execute();
 
     $userId = $stmt->insert_id;
 
@@ -45,12 +47,20 @@ if ($stmt->execute()) {
         "id" => $userId
     ]);
 
-} else {
+} catch (mysqli_sql_exception $e) {
 
-    echo json_encode([
-        "status" => "erro",
-        "msg" => "Erro ao criar usuário"
-    ]);
+    // 1062 = entrada duplicada (email já cadastrado)
+    if ($e->getCode() == 1062) {
+        echo json_encode([
+            "status" => "erro",
+            "msg" => "Este e-mail já está cadastrado"
+        ]);
+    } else {
+        echo json_encode([
+            "status" => "erro",
+            "msg" => "Erro ao criar usuário"
+        ]);
+    }
 }
 
 ?>

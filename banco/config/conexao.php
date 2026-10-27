@@ -1,16 +1,16 @@
 <?php
-$host = "143.106.241.4";   // servidor remoto
-$user = "cl204211";        // seu usuário
-$pass = "cl#08112008";  // sua senha
-$db   = "cl204211";        // nome do banco
+$host = "143.106.241.4";   //servidor remoto
+$user = "cl204211";        //usuário
+$pass = "cl#08112008";  //senha
+$db   = "cl204211";        //nome do banco
 
 $conn = new mysqli($host, $user, $pass, $db);
 
-// Verifica erro de conexão
+//verifica erro de conexao
 if ($conn->connect_error) {
     die("Erro na conexão: " . $conn->connect_error);
 }
 
-// Define charset (evita problemas com acentos)
+//para evitar erros com acento
 $conn->set_charset("utf8");
 ?>

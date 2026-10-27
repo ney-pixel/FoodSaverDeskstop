@@ -20,7 +20,7 @@ if (empty($email) || empty($senha)) {
     exit;
 }
 
-// Busca o administrador pelo e-mail
+//busca o adm pelo email
 $sql = "SELECT id, nome, senha, ativo
         FROM FS_administradores
         WHERE LOWER(email) = LOWER(?)
@@ -39,7 +39,7 @@ if (!$stmt) {
 $stmt->bind_param("s", $email);
 $stmt->execute();
 
-// bind_result funciona sem mysqlnd
+//bind_result funciona sem mysqlnd
 $stmt->bind_result(
     $adminId,
     $adminNome,
